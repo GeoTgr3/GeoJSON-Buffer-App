@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GeoJSON Buffer App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script type="module" crossorigin src="/GeoJSON-Buffer-App/assets/index-DbqLcdCQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/GeoJSON-Buffer-App/assets/index-CrSeYCmq.css">
+  </head>
+  <body>
+    <h1>Base de données générateurs anti-grele</h1>
+    <div>
+      <label>Rayon du cercle (km):</label>
+      <input type="number" id="bufferDistance" value="5" />
+      <button id="bufferBtn">afficher les cercles</button>
+    </div>
+    <div>
+      <label>Lat:</label>
+      <input type="number" id="lat" />
+      <label>Lng:</label>
+      <input type="number" id="lng" />
+      <button id="checkBtn">Vérifier le point</button>
+    </div>
+    <div id="map" style="height: 500px;"></div>
+  </body>
+</html>
