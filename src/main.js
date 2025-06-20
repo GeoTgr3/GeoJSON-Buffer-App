@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const map = L.map("map").setView([32.0, -4.0], 8);
   setTimeout(() => map.invalidateSize(), 500);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+  L.tileLayer("https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
     attribution: '&copy; OpenStreetMap contributors',
     maxZoom: 19
   }).addTo(map);
