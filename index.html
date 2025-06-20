@@ -1,26 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>GeoJSON Buffer App</title>
-    <link rel="stylesheet" href="/src/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  </head>
-  <body>
-    <h1>Base de données générateurs anti-grele</h1>
-    <div>
-      <label>Rayon du cercle (km):</label>
-      <input type="number" id="bufferDistance" value="5" />
-      <button id="bufferBtn">afficher les cercles</button>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Générateurs Anti-Grêle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet & Leaflet.pm -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.min.js"></script>
+
+  <!-- Proj4 & Proj4Leaflet -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+
+  <style>
+    #map { height: 600px; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-5xl mx-auto p-4">
+    <h1 class="text-2xl font-bold text-center mb-6">🛰️ Générateurs Anti-Grêle</h1>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div class="p-4 bg-white rounded shadow">
+        <label class="block font-medium mb-1">Rayon du cercle (km):</label>
+        <input type="number" id="bufferDistance" value="5" class="w-full p-2 border rounded mb-2" />
+        <button id="bufferBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">📍 Afficher les cercles</button>
+      </div>
+
+      <div class="p-4 bg-white rounded shadow">
+        <label class="block font-medium mb-1">Latitude:</label>
+        <input type="number" id="lat" class="w-full p-2 border rounded mb-2" />
+        <label class="block font-medium mb-1">Longitude:</label>
+        <input type="number" id="lng" class="w-full p-2 border rounded mb-2" />
+
+        <label class="block font-medium mb-1">Système de coordonnées:</label>
+        <select id="crsSelect" class="w-full p-2 border rounded mb-2">
+          <option value="wgs84">WGS 84 (EPSG:4326)</option>
+          <option value="nordmaroc">Nord Maroc (EPSG:26191)</option>
+        </select>
+
+        <button id="checkBtn" class="w-full bg-green-600 hover:bg-green-700 text-white p-2 rounded">📌 Vérifier le point</button>
+      </div>
     </div>
-    <div>
-      <label>Lat:</label>
-      <input type="number" id="lat" />
-      <label>Lng:</label>
-      <input type="number" id="lng" />
-      <button id="checkBtn">Vérifier le point</button>
-    </div>
-    <div id="map" style="height: 500px;"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+    <div id="map" class="rounded shadow"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
